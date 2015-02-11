@@ -4,6 +4,13 @@ This is a trivial Dockerfile to build a proxy container powered by famous Squid.
 
 It is a shameless rip-off of ```jpetazzo/squid-in-a-can```. Sorry for that :-)
 
+## Attention
+
+When I started this fork, I was looking for a way to transparently mirror Docker registry so that I could get images
+faster while just having to download once from the public registry. After many tries, it seems Squid is not exactly what one
+needs to implement this idea. ```docker-registry``` supports mirroring and that's I'll be using from now on. **Don't** expect
+any updates to this repository unless I come back at using Squid for other purposes.
+
 ## Why?
 
 If you build a lot of containers, and have a not-so-fast internet link,
@@ -27,7 +34,7 @@ information on tuning parameters see below.
 You can manually run these commands
 
 ```bash
-docker run --net host -d jpetazzo/squid-in-a-can
+docker run --net host -d pires/docker-squid
 ```
 
 ### Result
